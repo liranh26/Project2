@@ -16,13 +16,14 @@ public class Device extends Hardware{
 		return sensorMeasure;
 	}
 
-	public void setSensorRead(double sensorRead) {
+	//simulate an input from the sensor
+	public void simulateMeasure(double sensorRead) {
 		this.sensorMeasure = sensorRead;
 	}
 
 	@Override
 	public String toString() {
-		return "Device [sensorRead=" + sensorMeasure + "]" + super.toString();
+		return "Device [last sensor measure: " + sensorMeasure + "]" + super.toString();
 	}
 	
 }
