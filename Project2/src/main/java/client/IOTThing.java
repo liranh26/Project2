@@ -37,11 +37,10 @@ public class IOTThing extends Hardware{
 		//TODO --> from where the data gets ? send an id
 //		for (int i = 0; i < NUM_CLIENTS; i++) {
 			//3 is the start delay, 1 is fix rate
-			iot1.simulateInventoryChange();
+			
 
 			iotClientsService.scheduleAtFixedRate(new IOTClientRunnable(iot1), 3, 1, TimeUnit.SECONDS);
 //			iotClientsService.execute(new IOTClientRunnable(iot1)); 
-//			
 //		}
 		sleep(10000);
 		
@@ -107,6 +106,8 @@ public class IOTThing extends Hardware{
 							new InputStreamReader(clientSocket.getInputStream()));
 					PrintWriter writer = new PrintWriter(clientSocket.getOutputStream(), true);) {
 				
+				thing.simulateInventoryChange();
+				
 				System.out.println("Connected to server");
 				
 				Gson gson = new Gson();
@@ -136,9 +137,16 @@ public class IOTThing extends Hardware{
 			e.printStackTrace();
 		}
 	}
+
+
+	@Override
+	public String toString() {
+		return "IOTThing " +super.toString() +"\n[devices=" + devices + "]";
+	}
 	
 //	public void setDevices(Map<String, Device> devices) {
 //	this.devices = devices;
 //}
+	
 	
 }
