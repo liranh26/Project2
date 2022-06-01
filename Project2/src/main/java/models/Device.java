@@ -20,10 +20,21 @@ public class Device extends Hardware{
 	public void simulateMeasure(double sensorRead) {
 		this.sensorMeasure = sensorRead;
 	}
+	
+
+	public double getSensorMeasure() {
+		return sensorMeasure;
+	}
+
+	public void setSensorMeasure(double sensorMeasure) {
+		this.sensorMeasure = sensorMeasure;
+	}
 
 	@Override
 	public String toString() {
-		return "Device [last sensor measure: " + sensorMeasure + "], " + super.toString();
+		return "Device [sensorMeasure=" + sensorMeasure + "] " + super.toString() +"\n";
 	}
+
+
 	
 }

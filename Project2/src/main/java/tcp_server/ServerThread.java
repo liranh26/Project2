@@ -34,13 +34,13 @@ public class ServerThread implements Runnable {
 			lock.lock();
 			// reading the expense json from the stream
 			String json = bufferReader.readLine();
+
 			Gson gson = new Gson();
 			IOTThing iotThing = gson.fromJson(json, IOTThing.class);
 			
-//			System.out.println(iotThing);
-			
-			iotThing.simulateInventoryChange();
-			dbService.updateServer(iotThing);
+			System.out.println("IOTThing object(client) device size " + iotThing.getDevices().size());
+
+			dbService.updateToDB(iotThing);
 			lock.unlock();
 			
 			writer.println("Processing request completed for id: " + iotThing.getID());
