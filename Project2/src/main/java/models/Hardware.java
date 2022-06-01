@@ -9,11 +9,9 @@ public abstract class Hardware  {
 	private String model;
 	private String manufacturer;
 	
-	
-	
-	public Hardware() {
-		this.ID = UUID.randomUUID().toString();
-	}
+//	public Hardware() {
+//		this.ID = UUID.randomUUID().toString();
+//	}
 
 	public Hardware(HardwareType type, String model, String manufacturer) {
 		this.ID = UUID.randomUUID().toString();

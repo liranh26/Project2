@@ -4,9 +4,9 @@ public class Device extends Hardware{
 	
 	private double sensorMeasure;
 
-	public Device() {
-		super(HardwareType.ACTUATOR, "1234A", "Reno-Gear");
-	}
+//	public Device() {
+//		super(HardwareType.ACTUATOR, "1234A", "Reno-Gear");
+//	}
 
 	public Device(HardwareType type, String model, String manufacturer) {
 		super(type, model, manufacturer);
@@ -23,7 +23,7 @@ public class Device extends Hardware{
 
 	@Override
 	public String toString() {
-		return "Device [last sensor measure: " + sensorMeasure + "]" + super.toString();
+		return "Device [last sensor measure: " + sensorMeasure + "], " + super.toString();
 	}
 	
 }

@@ -7,14 +7,15 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import client.IOTThing;
 import models.Device;
 import models.HardwareType;
+import models.IOTThing;
 
 public class DBMock {
 
 	private static DBMock instance = null;
 	private Map<String, IOTThing> things;
+	private Map<String, Device> devices;
 
 	public static synchronized DBMock getInstance() {
 		if (instance == null)
@@ -24,6 +25,8 @@ public class DBMock {
 
 	private DBMock() {
 		things = new HashMap<String, IOTThing>();
+		devices = new HashMap<String, Device>();
+		setDeviceMap();
 		// seeding the db
 		seedIOTThing();
 	}
@@ -41,9 +44,19 @@ public class DBMock {
 
 		things = iotThingList.stream().collect(Collectors.toMap(IOTThing::getID, Function.identity()));
 	}
+	
+	private void setDeviceMap() {
+		things.values().stream().forEach(thing->{
+			thing.getDevices().values().stream().forEach(device -> devices.put(device.getID(), device));
+		});
+	}
 
-	public Map<String, IOTThing> getStudents() {
+	public Map<String, IOTThing> getIOTThings() {
 		return things;
+	}
+	
+	public Map<String, Device> getDevices() {
+		return devices;
 	}
 
 }
