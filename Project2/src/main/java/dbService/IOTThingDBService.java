@@ -10,13 +10,13 @@ import DB.DBMock;
 import models.Device;
 import models.IOTThing;
 
-public class DBService {
+public class IOTThingDBService {
 
 	private DBMock db;
 	private Map<String, IOTThing> things;
 	private Map<String, Device> devices;
 	
-	public DBService() {
+	public IOTThingDBService() {
 		db = DBMock.getInstance();
 		things = db.getIOTThings();
 		devices = db.getDevices();

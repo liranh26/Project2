@@ -9,18 +9,18 @@ import java.util.concurrent.locks.Lock;
 
 import com.google.gson.Gson;
 
-import dbService.DBService;
+import dbService.IOTThingDBService;
 import models.IOTThing;
 
 public class ServerThread implements Runnable {
 
 	private Socket clientSocket;
-	private DBService dbService;
+	private IOTThingDBService dbService;
 	private Lock lock;
 
 	public ServerThread(Socket clientSocket, Lock lock) {
 		this.clientSocket = clientSocket;
-		dbService = new DBService();
+		dbService = new IOTThingDBService();
 		this.lock = lock;
 	}
 
