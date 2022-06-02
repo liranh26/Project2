@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public abstract class Hardware  {
 
-	private final String ID;
+	private final UUID ID;
 	private HardwareType type;
 	private String model;
 	private String manufacturer;
@@ -14,7 +14,7 @@ public abstract class Hardware  {
 //	}
 
 	public Hardware(HardwareType type, String model, String manufacturer) {
-		this.ID = UUID.randomUUID().toString();
+		this.ID = UUID.randomUUID();
 		this.type = type;
 		this.model = model;
 		this.manufacturer = manufacturer;
@@ -45,7 +45,7 @@ public abstract class Hardware  {
 	}
 
 	public String getID() {
-		return ID;
+		return ID.toString();
 	}
 
 	@Override

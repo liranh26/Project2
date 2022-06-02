@@ -32,11 +32,11 @@ public class IOTThing extends Hardware {
 	public void simulateInventoryChange() {
 		Random rand = new Random();
 		List<Device> listDevices = new ArrayList<Device>(devices.values());
-		if(rand.nextInt(2) == 1 && listDevices.size() > 1)
+		if(rand.nextInt(2) == 1 && listDevices.size() > 1) //TODO --> finals
 			devices.values().remove(listDevices.get(rand.nextInt(listDevices.size())));
 
 		devices.values().stream().forEach(d -> {
-			d.simulateMeasure(Math.random() * SENSOR_RANDOM_RANGE);
+			d.setSensorMeasure(Math.random() * SENSOR_RANDOM_RANGE);
 		});
 	}
 
@@ -53,12 +53,12 @@ public class IOTThing extends Hardware {
 		return "IOTThing " + super.toString() + "[devices=" + devices + "]";
 	}
 
-	public static void main(String[] args) {
-		IOTThing iot = new IOTThing(HardwareType.CONTROLLER, "14AT", "Controllers");
-		iot.addDevice(new Device(HardwareType.ACTUATOR, "1234A", "Reno-Gear"));
-		iot.addDevice(new Device(HardwareType.SENSOR, "2292", "Sensor"));
-		iot.addDevice(new Device(HardwareType.CONTROLLER, "ZX88", "Controllers"));
-		System.out.println(iot);
-	}
+//	public static void main(String[] args) {
+//		IOTThing iot = new IOTThing(HardwareType.CONTROLLER, "14AT", "Controllers");
+//		iot.addDevice(new Device(HardwareType.ACTUATOR, "1234A", "Reno-Gear"));
+//		iot.addDevice(new Device(HardwareType.SENSOR, "2292", "Sensor"));
+//		iot.addDevice(new Device(HardwareType.CONTROLLER, "ZX88", "Controllers"));
+//		System.out.println(iot);
+//	}
 
 }

@@ -35,7 +35,7 @@ public class DBMock {
 				new Device(HardwareType.SENSOR, "2292", "Sensor"),
 				new Device(HardwareType.CONTROLLER, "ZX88", "Controllers"));
 
-		deviceList.stream().forEach(d -> d.simulateMeasure(Math.random() * SENSOR_RANDOM_RANGE));
+		deviceList.stream().forEach(d -> d.setSensorMeasure(Math.random() * SENSOR_RANDOM_RANGE));
 		
 		List<IOTThing> iotThingList = Arrays.asList(new IOTThing(HardwareType.CONTROLLER, "8001", "HomeControllers"),
 				new IOTThing(HardwareType.CONTROLLER, "1000", "HomeControllers"),

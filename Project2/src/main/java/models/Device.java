@@ -12,14 +12,14 @@ public class Device extends Hardware{
 		super(type, model, manufacturer);
 	}
 	
-	public double getSensorRead() {
-		return sensorMeasure;
-	}
+//	public double getSensorRead() {
+//		return sensorMeasure;
+//	}
 
 	//simulate an input from the sensor
-	public void simulateMeasure(double sensorRead) {
-		this.sensorMeasure = sensorRead;
-	}
+//	public void simulateMeasure(double sensorRead) {
+//		this.sensorMeasure = sensorRead;
+//	}
 	
 
 	public double getSensorMeasure() {
