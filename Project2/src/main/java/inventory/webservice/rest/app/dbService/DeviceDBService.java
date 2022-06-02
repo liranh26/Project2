@@ -11,6 +11,11 @@ import inventory.webservice.rest.app.exceptions.MissingDataException;
 import inventory.webservice.rest.app.models.Device;
 import inventory.webservice.rest.app.models.IOTThing;
 
+/*
+ * DeviceDBService manages the data of the DB.
+ * serve data from the DB, in case of invalid inputs throws MissingDataException with a custom error message.
+ */
+
 public class DeviceDBService {
 
 	private DBMock db;
@@ -26,7 +31,7 @@ public class DeviceDBService {
 	public List<Device> getAllDevices() {
 		return new ArrayList<Device>(devices.values());
 	}
-	
+
 	public List<IOTThing> getAllIOTThings() {
 		return new ArrayList<IOTThing>(things.values());
 	}
@@ -42,8 +47,7 @@ public class DeviceDBService {
 		if (deviceFilter.missingData())
 			throw new MissingDataException("Missing data of requested IOT Thing!");
 
-		List<Device> responseList = things.get(deviceFilter.getIOTThingId()).
-				getDevices().values().stream()
+		List<Device> responseList = things.get(deviceFilter.getIOTThingId()).getDevices().values().stream()
 				.filter(iot -> (iot.getModel().equals(deviceFilter.getModel())
 						&& iot.getManufacturer().equals(deviceFilter.getManufacturer())
 						&& iot.getType().equals(deviceFilter.getType())))

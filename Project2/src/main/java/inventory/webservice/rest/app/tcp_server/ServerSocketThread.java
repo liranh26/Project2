@@ -12,6 +12,11 @@ import com.google.gson.Gson;
 import inventory.webservice.rest.app.dbService.IOTThingDBService;
 import inventory.webservice.rest.app.models.IOTThing;
 
+/*
+ * ServerSocketThread parse JSON objects send by the client (InventoryReport), 
+ * and pass to the IOT-Thing DB service for further processing.
+ */
+
 public class ServerSocketThread implements Runnable {
 
 	private Socket clientSocket;

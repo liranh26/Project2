@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
+ * IOTThing extends Hardware Class and holds devices (or not).
+ */
 public class IOTThing extends Hardware {
 
 	private Map<String, Device> devices;

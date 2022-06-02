@@ -9,6 +9,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/*
+ * ServerThread listen on a port and manages the incoming requests by executing ServerSocketThread.
+ */
+
 public class ServerThread extends Thread {
 
 	private final int PORT;

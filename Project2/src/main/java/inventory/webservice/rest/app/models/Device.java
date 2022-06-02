@@ -1,5 +1,7 @@
 package inventory.webservice.rest.app.models;
-
+/*
+ * Device extends Hardware Class and includes a measure field input from the device.
+ */
 public class Device extends Hardware{
 	
 	private double sensorMeasure;

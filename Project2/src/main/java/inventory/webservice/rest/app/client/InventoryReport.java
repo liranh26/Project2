@@ -10,6 +10,10 @@ import inventory.webservice.rest.app.models.Device;
 import inventory.webservice.rest.app.models.HardwareType;
 import inventory.webservice.rest.app.models.IOTThing;
 
+/*
+ * InventoryReport transmit reports of the IOT-Thing to server in a periodically time by the ClientThread Class.
+ */
+
 public class InventoryReport {
 	
 	private IOTThing iot;

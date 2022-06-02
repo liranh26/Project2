@@ -3,6 +3,15 @@ package inventory.webservice.rest.app.beans;
 import inventory.webservice.rest.app.models.HardwareType;
 import jakarta.ws.rs.QueryParam;
 
+/*
+ * DevicesFilterBean binds the values of a HTTP query parameter or parameters to a resource method parameter
+ * 
+ * 	@QueryParam("type") HardwareType type - the type of device;
+ *	@QueryParam("model") String model - the model of the device;
+ *	@QueryParam("manufacturer") String manufacturer - the manufacturer of the device;
+ *	@QueryParam("id") String iotThing - this id is of the IOT-Thing which contains the device;
+ */
+
 public class DevicesFilterBean {
 
 	@QueryParam("type") HardwareType type;

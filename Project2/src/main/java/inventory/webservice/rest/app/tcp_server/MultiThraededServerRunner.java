@@ -4,6 +4,10 @@ import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 
+/*
+ * MultiThraededServerRunner merges the activation of the TCP server and the Tomcat server.
+ */
+
 @WebListener
 public class MultiThraededServerRunner implements ServletContextListener {
 

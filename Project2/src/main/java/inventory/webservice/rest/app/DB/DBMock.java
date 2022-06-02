@@ -11,6 +11,10 @@ import inventory.webservice.rest.app.models.Device;
 import inventory.webservice.rest.app.models.HardwareType;
 import inventory.webservice.rest.app.models.IOTThing;
 
+/*
+ * DBMock simulate a DB which holds the inventory data.
+ */
+
 public class DBMock {
 
 	private static DBMock instance = null;

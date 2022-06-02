@@ -12,6 +12,11 @@ import inventory.webservice.rest.app.exceptions.MissingDataException;
 import inventory.webservice.rest.app.models.Device;
 import inventory.webservice.rest.app.models.IOTThing;
 
+/*
+ * IOTThingDBService manages the data of the DB.
+ * serve data from the DB and updates it, in case of invalid inputs throws MissingDataException with a custom error message.
+ */
+
 public class IOTThingDBService {
 
 	private DBMock db;
@@ -24,16 +29,13 @@ public class IOTThingDBService {
 		devices = db.getDevices();
 	}
 
-	
 	public List<IOTThing> getAllIOTThings() {
 		return new ArrayList<IOTThing>(things.values());
 	}
 
-	
 	public List<Device> getAllDevices() {
 		return new ArrayList<Device>(devices.values());
 	}
-	
 
 	public void updateToDB(IOTThing thing) {
 
@@ -46,13 +48,11 @@ public class IOTThingDBService {
 		System.out.println("DB devices list size --> " + devices.values().size());
 	}
 
-	
 	private void addToDB(IOTThing thing) {
 		things.put(thing.getID(), thing);
 		thing.getDevices().values().stream().forEach(device -> devices.put(device.getID(), device));
 	}
 
-	
 	private void updateDevices(IOTThing thing) {
 
 		List<Device> oldDevices = new ArrayList<Device>(things.get(thing.getID()).getDevices().values());
@@ -68,8 +68,6 @@ public class IOTThingDBService {
 				devices.remove(d.getID());
 		});
 	}
-	
-	
 
 	public IOTThing getIOTThingById(String id) {
 		if (things.get(id) == null)
@@ -77,8 +75,6 @@ public class IOTThingDBService {
 		return things.get(id);
 	}
 
-	
-	
 	public List<IOTThing> getThingsByProperties(IOTThingFilterBean iotFilter) {
 
 		if (iotFilter.missingData())

@@ -11,6 +11,10 @@ import com.google.gson.Gson;
 
 import inventory.webservice.rest.app.models.IOTThing;
 
+/*
+ * ClientThread implements Runnable interface, it sends a JSON with the data to the server(TCP).
+ */
+
 public class ClientThread implements Runnable {
 
 	private IOTThing thing;

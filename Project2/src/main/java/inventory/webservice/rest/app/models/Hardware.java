@@ -2,16 +2,16 @@ package inventory.webservice.rest.app.models;
 
 import java.util.UUID;
 
+/*
+ * Hardware an abstract class which sets base fields for an electrical component.
+ */
+
 public abstract class Hardware  {
 
 	private final UUID ID;
 	private HardwareType type;
 	private String model;
 	private String manufacturer;
-	
-//	public Hardware() {
-//		this.ID = UUID.randomUUID().toString();
-//	}
 
 	public Hardware(HardwareType type, String model, String manufacturer) {
 		this.ID = UUID.randomUUID();
