@@ -7,9 +7,9 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import models.Device;
-import models.HardwareType;
-import models.IOTThing;
+import inventory.webservice.rest.app.models.Device;
+import inventory.webservice.rest.app.models.HardwareType;
+import inventory.webservice.rest.app.models.IOTThing;
 
 class IOTThingTest {
 

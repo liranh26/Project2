@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import models.Device;
-import models.HardwareType;
+import inventory.webservice.rest.app.models.Device;
+import inventory.webservice.rest.app.models.HardwareType;
 
 class DeviceTest {
 
