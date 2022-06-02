@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class IOTThing extends Hardware {
 
 	private Map<String, Device> devices;
 	private final static int SENSOR_RANDOM_RANGE = 20;
-	private final int MIN_DEVICES = 0;
+	private final int MIN_DEVICES = 1;
 	private final int FIRST_DEVICE_REMOVE = 0;
 
 	public IOTThing(HardwareType type, String model, String manufacturer) {
@@ -32,7 +31,7 @@ public class IOTThing extends Hardware {
 	}
 
 	public void simulateInventoryChange() {
-		Random rand = new Random();
+
 		List<Device> listDevices = new ArrayList<Device>(devices.values());
 		if(listDevices.size() > MIN_DEVICES)
 			devices.values().remove(listDevices.get(FIRST_DEVICE_REMOVE));
@@ -54,13 +53,5 @@ public class IOTThing extends Hardware {
 	public String toString() {
 		return "IOTThing " + super.toString() + "[devices=" + devices + "]";
 	}
-
-//	public static void main(String[] args) {
-//		IOTThing iot = new IOTThing(HardwareType.CONTROLLER, "14AT", "Controllers");
-//		iot.addDevice(new Device(HardwareType.ACTUATOR, "1234A", "Reno-Gear"));
-//		iot.addDevice(new Device(HardwareType.SENSOR, "2292", "Sensor"));
-//		iot.addDevice(new Device(HardwareType.CONTROLLER, "ZX88", "Controllers"));
-//		System.out.println(iot);
-//	}
 
 }

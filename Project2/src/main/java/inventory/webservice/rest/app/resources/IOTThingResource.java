@@ -25,7 +25,7 @@ public class IOTThingResource {
 	IOTThingDBService iotDBservice = new IOTThingDBService();
 
 	@GET
-	public Response getAllIOTThings(@BeanParam IOTThingFilterBean iotFilter) throws MissingDataException {
+	public Response getIOTThings(@BeanParam IOTThingFilterBean iotFilter) throws MissingDataException {
 
 		Status status = Status.NOT_FOUND;
 

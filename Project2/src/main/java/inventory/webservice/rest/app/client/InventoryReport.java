@@ -41,7 +41,7 @@ public class InventoryReport {
 			iotClientsService.shutdown();
 			iotClientsService.awaitTermination(5, TimeUnit.SECONDS);
 		} catch (InterruptedException e) {
-			// TODO
+			System.err.println("Failed closing client service!");
 			e.printStackTrace();
 		}
 	}

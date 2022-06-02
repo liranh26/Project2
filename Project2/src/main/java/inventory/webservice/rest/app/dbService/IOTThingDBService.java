@@ -72,8 +72,7 @@ public class IOTThingDBService {
 	
 
 	public IOTThing getIOTThingById(String id) {
-		IOTThing responseIOT = things.get(id);
-		if (responseIOT == null)
+		if (things.get(id) == null)
 			throw new MissingDataException("This id doesn't exist at the DB!");
 		return things.get(id);
 	}

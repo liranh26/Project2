@@ -81,8 +81,6 @@ class InventoryServerTest {
 		int seededObjectsInDB = 3;
 		int transmitTime = 2000;
 		
-		System.out.println("------->!"+testDevices.size());
-		
 		InventoryReport report = new InventoryReport();
 
 		report.transmitReportsPeriodically(transmitTime);

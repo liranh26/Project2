@@ -17,6 +17,7 @@ public class DBMock {
 	private Map<String, IOTThing> things;
 	private Map<String, Device> devices;
 	private final int SENSOR_RANDOM_RANGE = 50;
+	
 	public static synchronized DBMock getInstance() {
 		if (instance == null)
 			instance = new DBMock();

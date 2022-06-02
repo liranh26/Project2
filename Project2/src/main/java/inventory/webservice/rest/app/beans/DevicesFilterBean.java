@@ -8,7 +8,7 @@ public class DevicesFilterBean {
 	@QueryParam("type") HardwareType type;
 	@QueryParam("model") String model;
 	@QueryParam("manufacturer") String manufacturer;
-	@QueryParam("id") String id;
+	@QueryParam("id") String iotThing;
 	
 	public HardwareType getType() {
 		return type;
@@ -28,11 +28,11 @@ public class DevicesFilterBean {
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-	public String getId() {
-		return id;
+	public String getIOTThingId() {
+		return iotThing;
 	}
 	public void setId(String id) {
-		this.id = id;
+		this.iotThing = id;
 	}
 	
 	
@@ -51,7 +51,7 @@ public class DevicesFilterBean {
 	
 	@Override
 	public String toString() {
-		return "DevicesFilterBean [type=" + type + ", model=" + model + ", manufacturer=" + manufacturer + ", id=" + id
+		return "DevicesFilterBean [type=" + type + ", model=" + model + ", manufacturer=" + manufacturer + ", id=" + iotThing
 				+ "]";
 	}
 	

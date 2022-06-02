@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import inventory.webservice.rest.app.beans.IOTThingFilterBean;
 import inventory.webservice.rest.app.dbService.IOTThingDBService;
 import inventory.webservice.rest.app.exceptions.MissingDataException;
-import inventory.webservice.rest.app.models.HardwareType;
 import inventory.webservice.rest.app.resources.IOTThingResource;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
@@ -15,9 +14,11 @@ import jakarta.ws.rs.core.Response.Status;
 class IOTThingResourceTest {
 
 	private IOTThingResource resource;
+	private IOTThingDBService service ;
 	
 	IOTThingResourceTest(){
 		this.resource = new IOTThingResource();
+		this.service = new IOTThingDBService();
 	}
 
 	
@@ -26,7 +27,7 @@ class IOTThingResourceTest {
 		
 		IOTThingFilterBean iotFilter = new IOTThingFilterBean();
 		
-		Response actual = resource.getAllIOTThings(iotFilter);
+		Response actual = resource.getIOTThings(iotFilter);
 		assertEquals(Status.ACCEPTED.getStatusCode(), actual.getStatus());
 
 	}
@@ -34,7 +35,7 @@ class IOTThingResourceTest {
 	@Test
 	void getThingByID() {
 		
-		IOTThingDBService service = new IOTThingDBService();
+		
 		//DB is seeded with objects
 		Response actual = resource.getIOTThingById(service.getAllIOTThings().stream().toList().get(0).getID());
 		assertEquals(Status.OK.getStatusCode(), actual.getStatus());
@@ -55,12 +56,13 @@ class IOTThingResourceTest {
 	void getThingByProperties() {
 		
 		IOTThingFilterBean iotFilter = new IOTThingFilterBean();
-		iotFilter.setModel("8001");
-		iotFilter.setManufacturer("HomeControllers");
-		//check first only half input
+		iotFilter.setModel(service.getAllIOTThings().get(0).getModel());
+		iotFilter.setManufacturer(service.getAllIOTThings().get(0).getManufacturer());
+		
+		//check only half input
 		boolean exceptionCaught = false;
 		try {
-		Response actual = resource.getAllIOTThings(iotFilter);
+			Response actual = resource.getIOTThings(iotFilter);
 		}catch(MissingDataException e) {
 			exceptionCaught = true;
 		}catch(Exception e) {
@@ -70,9 +72,9 @@ class IOTThingResourceTest {
 		assertTrue(exceptionCaught);
 		
 		//check valid complete input
-		iotFilter.setType(HardwareType.CONTROLLER);
+		iotFilter.setType(service.getAllIOTThings().get(0).getType());
 		
-		Response actual = resource.getAllIOTThings(iotFilter);
+		Response actual = resource.getIOTThings(iotFilter);
 		assertEquals(Status.CREATED.getStatusCode(), actual.getStatus());
 
 	}

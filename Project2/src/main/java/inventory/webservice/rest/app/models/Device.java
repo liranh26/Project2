@@ -4,23 +4,9 @@ public class Device extends Hardware{
 	
 	private double sensorMeasure;
 
-//	public Device() {
-//		super(HardwareType.ACTUATOR, "1234A", "Reno-Gear");
-//	}
-
 	public Device(HardwareType type, String model, String manufacturer) {
 		super(type, model, manufacturer);
 	}
-	
-//	public double getSensorRead() {
-//		return sensorMeasure;
-//	}
-
-	//simulate an input from the sensor
-//	public void simulateMeasure(double sensorRead) {
-//		this.sensorMeasure = sensorRead;
-//	}
-	
 
 	public double getSensorMeasure() {
 		return sensorMeasure;
@@ -35,6 +21,4 @@ public class Device extends Hardware{
 		return "Device [sensorMeasure=" + sensorMeasure + "] " + super.toString() +"\n";
 	}
 
-
-	
 }
