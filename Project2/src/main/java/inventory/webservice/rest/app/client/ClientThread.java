@@ -34,7 +34,7 @@ public class ClientThread implements Runnable {
 				PrintWriter writer = new PrintWriter(clientSocket.getOutputStream(), true);) {
 
 			System.out.println("Connected to server");
-
+			//simulate Inventory change removes devices from the iot thing devices.
 			thing.simulateInventoryChange();
 
 			Gson gson = new Gson();

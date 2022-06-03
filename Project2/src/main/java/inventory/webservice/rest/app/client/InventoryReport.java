@@ -1,4 +1,4 @@
-package inventory.webservice.rest.app.client;
+ package inventory.webservice.rest.app.client;
 
 
 import java.io.IOException;

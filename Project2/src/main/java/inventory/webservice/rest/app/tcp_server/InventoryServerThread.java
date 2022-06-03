@@ -13,13 +13,13 @@ import java.util.concurrent.locks.ReentrantLock;
  * ServerThread listen on a port and manages the incoming requests by executing ServerSocketThread.
  */
 
-public class ServerThread extends Thread {
+public class InventoryServerThread extends Thread {
 
 	private final int PORT;
 	private ExecutorService executorService;
 	Lock lock;
 
-	public ServerThread(int port) {
+	public InventoryServerThread(int port) {
 		this.PORT = port;
 		executorService = Executors.newCachedThreadPool();
 	}

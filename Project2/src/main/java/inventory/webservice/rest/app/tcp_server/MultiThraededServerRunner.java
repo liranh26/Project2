@@ -12,10 +12,10 @@ import jakarta.servlet.annotation.WebListener;
 public class MultiThraededServerRunner implements ServletContextListener {
 
 	private final int PORT = 9090;
-	ServerThread server;
+	InventoryServerThread server;
 	
 	public void contextInitialized(ServletContextEvent event) {
-		 server = new ServerThread(PORT);
+		 server = new InventoryServerThread(PORT);
 		 server.start();
 	}
 
