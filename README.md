@@ -1,1 +1,1 @@
-# IoT Inventory Project - SolarEdge
+# IoT Inventory Project
